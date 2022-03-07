@@ -66,7 +66,7 @@ public class quiz1 {
                     if (s.length()/i-1 <= j) break;
                     next = s.substring((j*i)+i,(j*i)+(2*i));
                 }
-                int length = (int)(Math.log10(cnt+1)+1)-1;
+                int length = (int)(Math.log10(cnt+1));
                 if (cnt != 0) subVal += (i-1) + (i*(cnt-1)) - length;
                 cnt = 0;
             }
