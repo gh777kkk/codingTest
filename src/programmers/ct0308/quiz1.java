@@ -31,14 +31,14 @@ public class quiz1 {
         int lockLength = lock.length;
         int[][] temp;
         int[][] tempS;
-        int cnt = 0;
+//        int cnt = 0;
 
-        for (int i = 0; i < lockLength; i++){
-            for (int j = 0; j < lockLength; j++){
-                if (lock[i][j] == 0) cnt += 1;
-            }
-        }
-        if (cnt == 0) return true;
+//        for (int i = 0; i < lockLength; i++){
+//            for (int j = 0; j < lockLength; j++){
+//                if (lock[i][j] == 0) cnt += 1;
+//            }
+//        }
+//        if (cnt == 0) return true;
 
         for (int i = 0; i < 4; i++){
             if (i != 0) key = list90(key);
