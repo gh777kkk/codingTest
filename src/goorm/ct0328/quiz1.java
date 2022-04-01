@@ -20,7 +20,7 @@ N * N 배열에서 시작점(0,0)에서 도착점(N-1, N-1) 까지의 최단거�
 시작점부터 도착점까지의 최단거리 ( 도착점까지 길이 없을 경우 프로그램 종료)
  */
 public class quiz1 {
-    public static void main (String[] arg) throws IOException {
+    public static void main (String[] arg)  {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         int[][] list = new int[N][N];
@@ -34,7 +34,9 @@ public class quiz1 {
         if (list[0][0] == 0) return;
 
         RoadSearch(list,N,1,0,0,result);
+        // 길이 없을때
         if (result.size() == 0) return;
+        // 2개이상 의 길이 있을때 최솟값
         int output = result.get(0);
         for (int data : result){
             if (data < output) output = data;
@@ -43,6 +45,7 @@ public class quiz1 {
     }
 
     public static void RoadSearch(int[][] list,int N,int cnt,int x,int y,ArrayList<Integer> result){
+        // 도착 지점에 도착하면 배열의 주소에 값 추가
         if (x == N-1 && y == N-1) result.add(cnt);
         int[][] new_list = new int[N][N];
         for (int i = 0; i < N; i++){
@@ -51,6 +54,7 @@ public class quiz1 {
             }
         }
         new_list[x][y] = 0;
+        // 전후 좌후 4방향에 대해서 1이면 1로 이동 후 현제 좌표 0으로
         if (y < N-1 && new_list[x][y+1] == 1) RoadSearch(new_list,N,cnt+1,x,y+1,result);
         if (x < N-1 && new_list[x+1][y] == 1) RoadSearch(new_list,N,cnt+1,x+1,y,result);
         if (x > 0 && new_list[x-1][y] == 1) RoadSearch(new_list,N,cnt+1,x-1,y,result);
